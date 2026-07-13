@@ -52,6 +52,8 @@ const products = [
   },
 ];
 
+const MENU_URL = "https://antojitos-pi.vercel.app/";
+
 function QRCodeDemo() {
   return (
     <section id="qr-demo" className="px-5 py-8 bg-gradient-to-br from-brand-sand/10 to-transparent mx-4 md:mx-auto max-w-4xl rounded-3xl mt-4 mb-10 shadow-sm border border-brand-sand/30 overflow-hidden relative">
@@ -61,15 +63,25 @@ function QRCodeDemo() {
             initial={{ rotate: 0 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="bg-white p-4 rounded-2xl shadow-xl border-4 border-white flex flex-col items-center"
+            className="bg-white p-6 rounded-3xl shadow-2xl border-4 border-white flex flex-col items-center"
           >
             <QRCode 
-              value="http://localhost:3000" 
-              size={160}
+              value={MENU_URL}
+              size={200}
               fgColor="#2d1b11"
-              level="M"
+              bgColor="#ffffff"
+              level="H"
             />
-            <p className="mt-3 font-semibold text-brand-red text-sm font-outfit">Escanea para ver nuestro menú</p>
+            <p className="mt-4 font-semibold text-brand-red text-sm font-outfit text-center">Escanea para ver nuestro menú</p>
+            <p className="mt-2 text-xs text-gray-500 text-center max-w-[200px] leading-relaxed">También puedes escanear este código con la cámara de tu celular.</p>
+            <a 
+              href={MENU_URL} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="mt-5 w-full bg-brand-red text-white py-2.5 px-4 rounded-full text-sm font-bold shadow-md hover:bg-red-700 transition-colors text-center flex items-center justify-center gap-2"
+            >
+              <Smartphone size={16} /> Probar menú
+            </a>
           </motion.div>
         </div>
         <div className="w-full md:w-2/3 text-center md:text-left">
